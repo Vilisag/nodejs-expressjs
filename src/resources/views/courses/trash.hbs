@@ -1,0 +1,46 @@
+<div class="mt-4">
+  <div class="row">
+    <div class="col-sm-6 col-lg-6">
+      <h2>Coures Deleted</h2>
+    </div>
+    <div class="col-sm-6 col-lg-6 text-end">
+      <a href="/courses" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-lg-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Deleted At</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each courses}}
+          <tr>
+            <th scope="row">{{inc @index}}</th>
+            <td>{{this.name}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.deletedAt}}</td>
+            <td class="form-inline">
+              <a class="btn btn-info" href="/courses/{{this._id}}/restore">Restore</a>
+              <a class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-title="Course delete confirmation?"
+                data-bs-message="The course with ID-{{this._id}} will be deleted and cannot undo. Please consider before action!"
+                data-bs-url="/courses/{{this._id}}/remove" data-bs-target="#confirmModal">Permanently Del</a>
+            </td>
+          </tr>
+          {{else}}
+          <tr>
+            <td colspan="5" class="text-center">No data result. <a href="/courses" class="btn btn-sm btn-link">Courses List</a></td>
+          </tr>
+          {{/each}}
+        </tbody>
+        {{> modal}}
+      </table>
+    </div>
+  </div>
+</div>

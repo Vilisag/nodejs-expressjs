@@ -1,0 +1,20 @@
+<div class="mt-4">
+    <form method="POST" action="/courses/{{course._id}}/update">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" value="{{course.name}}" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description" value="{{course.description}}" name="description">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="text" class="form-control" id="image" value="{{course.image}}" name="image">
+        </div>
+        <div class="mb-3">
+            <a class="btn btn-lg btn-secondary" href="/courses">Back</a>
+            <button type="submit" class="btn btn-lg btn-primary">Save</button>
+        </div>
+    </form>
+</div>
